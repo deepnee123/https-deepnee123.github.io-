@@ -1,0 +1,98 @@
+/* ============ THEMES: edit colors here, or set SITE.theme in js/config.js ============
+   Every color on the site comes from these 8 variables. */
+:root,[data-theme=ocean]{--bg:#0b1b2e;--surface:#112844;--text:#e6f1ff;--muted:#8fa9c7;--accent:#38bdf8;--accent-ink:#04202f;--line:#23466f;--grid:rgba(56,189,248,.07)}
+[data-theme=ice]{--bg:#f2f8ff;--surface:#ffffff;--text:#0b2545;--muted:#52708f;--accent:#0b74de;--accent-ink:#ffffff;--line:#cfe2f6;--grid:rgba(11,116,222,.07)}
+[data-theme=midnight]{--bg:#060d1a;--surface:#0d1b33;--text:#e8eefc;--muted:#8a9bbd;--accent:#6ea8ff;--accent-ink:#06142e;--line:#1d3159;--grid:rgba(110,168,255,.06)}
+/* Add your own: copy a block above, rename it, then set theme:"yourname" in config.js */
+
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font:17px/1.65 Figtree,system-ui,sans-serif;color:var(--text);background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:36px 36px}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,sans-serif;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:28px}
+h3{font-size:1.2rem;margin-bottom:6px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.sec{padding:84px 0}
+.muted{color:var(--muted)}
+
+.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:60px}
+.brand{font:700 1.1rem "Bricolage Grotesque",sans-serif;color:var(--text);text-decoration:none;white-space:nowrap}
+.nav nav{display:flex;gap:20px;overflow-x:auto}
+.nav nav a{color:var(--muted);text-decoration:none;font-size:.95rem;white-space:nowrap}
+.nav nav a:hover{color:var(--accent)}
+
+#hero{padding:96px 0 72px}
+#hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:700}
+.dim{display:flex;align-items:center;gap:8px;color:var(--accent);font-size:.8rem;margin:10px 0 22px}
+.dim::before,.dim::after{content:"";flex:1;border-top:1.5px solid var(--accent)}
+.lead{font-size:1.2rem;color:var(--muted);max-width:34em}
+.chip{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:4px 14px;font-size:.9rem;margin-bottom:22px}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{background:var(--accent);color:var(--accent-ink);padding:10px 20px;border-radius:6px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.ghost{background:none;color:var(--accent)}
+.btn:hover{filter:brightness(1.1)}
+/* title block, like the corner of an engineering drawing */
+.tb{border:2px solid var(--accent);background:var(--surface);border-radius:3px;font-size:.92rem}
+.tb div{display:grid;grid-template-columns:90px 1fr;border-top:1px solid var(--line)}
+.tb div:first-child{border-top:0}
+.tb b,.tb span{padding:8px 12px}
+.tb b{color:var(--muted);font-weight:500;border-right:1px solid var(--line)}
+@media(max-width:760px){#hero .wrap{grid-template-columns:1fr}}
+
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:48px}
+.about p+p{margin-top:14px}
+.about aside{border-left:3px solid var(--accent);padding-left:22px}
+.about ul{padding-left:18px;margin-top:8px}
+.about li{margin-bottom:6px}
+.me{width:100%;max-width:240px;border-radius:6px;margin-bottom:18px;display:block}
+@media(max-width:760px){.about{grid-template-columns:1fr;gap:28px}}
+
+.tl{list-style:none;padding:0;margin-left:8px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 26px 28px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.tl .when{color:var(--accent);font-weight:600;font-size:.9rem;font-variant-numeric:tabular-nums}
+.tl button{all:unset;cursor:pointer;display:block}
+.tl button:hover h3{color:var(--accent)}
+.tl button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.cover{height:170px;background:repeating-linear-gradient(135deg,var(--surface) 0 14px,var(--line) 14px 15px) center/cover}
+.card .body{padding:16px 18px 20px}
+.card p{color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:.8rem;border:1px solid var(--line);border-radius:99px;padding:1px 10px;color:var(--muted)}
+.tag.ok{border-color:var(--accent);color:var(--accent)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px}
+.awards{list-style:none;padding:0}
+.awards li{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.awards li:last-child{border-bottom:1px solid var(--line)}
+.awards b{color:var(--accent);font-variant-numeric:tabular-nums}
+.mail{font:700 clamp(1.4rem,4vw,2.2rem) "Bricolage Grotesque",sans-serif;word-break:break-all}
+.links{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px}
+footer{margin-top:64px;color:var(--muted);font-size:.9rem}
+
+dialog{width:min(900px,94vw);max-height:92vh;overflow:auto;background:var(--bg);color:var(--text);border:1px solid var(--accent);border-radius:8px;padding:0}
+dialog::backdrop{background:rgba(3,10,22,.72)}
+.x{position:sticky;top:10px;float:right;margin:10px 10px 0 0;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:1.3rem;cursor:pointer}
+.mbody{padding:32px clamp(18px,4vw,40px) 40px}
+.mbody h2{margin:8px 0 12px}
+.stages{list-style:none;padding:0;counter-reset:s;margin:34px 0 0 16px}
+.stages>li{counter-increment:s;position:relative;padding:0 0 34px 36px;border-left:2px solid var(--line)}
+.stages>li::before{content:counter(s);position:absolute;left:-17px;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;display:grid;place-items:center}
+.stages .when{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+.media{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+figure img,figure video,figure iframe,.ph{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px;border:1px solid var(--line);display:block;background:var(--surface)}
+figure iframe{aspect-ratio:16/9}
+.ph{display:grid;place-items:center;border-style:dashed;color:var(--muted);font-size:.9rem;text-align:center;padding:10px}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:6px}
